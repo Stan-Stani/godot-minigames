@@ -1,0 +1,8 @@
+{
+    "workbench.colorCustomizations": {
+        "editorOverviewRuler.deletedForeground": "#633b07",
+        "activityBar.background": "#580944",
+        "titleBar.activeBackground": "#7C0C60",
+        "titleBar.activeForeground": "#FFFBFE"
+    }
+}
