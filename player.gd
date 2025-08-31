@@ -20,7 +20,8 @@ func handle_horizontal_input():
 
 func handle_jump_input():
 	var jump_input: float = - (
-		Input.get_action_strength("ui_select")
+		Input.get_action_strength("ui_select") if Input.get_action_strength("ui_select") != 0
+		else Input.get_action_strength("ui_up")
 	)
 
 	if (jump_input && self.is_on_floor()):

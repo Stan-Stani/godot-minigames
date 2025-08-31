@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://cvhktbdwiarkb"]
+[gd_scene load_steps=7 format=3 uid="uid://cvhktbdwiarkb"]
 
 [ext_resource type="PackedScene" uid="uid://tpn04gos0veu" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://clqj15kv7id7p" path="res://block.tscn" id="2_0xm2m"]
@@ -25,12 +25,10 @@ sources/0 = SubResource("TileSetAtlasSource_1bvp3")
 position = Vector2(4, 103)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-limit_bottom = 240
 
 [node name="Sprite2D" parent="." instance=ExtResource("2_0xm2m")]
 position = Vector2(12, 143)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAA4AAAAAAAAAAAABAA4AAAAAAAAAAAACAA4AAAAAAAAAAAADAA4AAAAAAAAAAAAEAA4AAAAAAAAAAAAFAA4AAAAAAAAAAAAGAA4AAAAAAAAAAAAHAA4AAAAAAAAAAAAIAA4AAAAAAAAAAAAJAA4AAAAAAAAAAAAKAA4AAAAAAAAAAAALAA4AAAAAAAAAAAAMAA4AAAAAAAAAAAANAA4AAAAAAAAAAAAOAA4AAAAAAAAAAAAPAA4AAAAAAAAAAAAAAA0AAAAAAAAAAAABAA0AAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_lquwl")
 script = ExtResource("4_1bvp3")
