@@ -18,6 +18,11 @@ func handle_horizontal_input():
 	)
 	velocity.x = horizontal_input * speed
 
+	if horizontal_input > 0:
+		$Sprite2D.scale.x = -1
+	elif horizontal_input < 0:
+		$Sprite2D.scale.x = 1
+
 func handle_jump_input():
 	var jump_input: float = - (
 		Input.get_action_strength("ui_select") if Input.get_action_strength("ui_select") != 0
