@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://clqj15kv7id7p"]
+
+[ext_resource type="Texture2D" uid="uid://7s4i7se8l4gy" path="res://assets/Colleen.png" id="1_im0tn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kj10r"]
+atlas = ExtResource("1_im0tn")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcjlb"]
+atlas = ExtResource("1_im0tn")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vl87p"]
+atlas = ExtResource("1_im0tn")
+region = Rect2(96, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfwl5"]
+atlas = ExtResource("1_im0tn")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5d32t"]
+atlas = ExtResource("1_im0tn")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mk58r"]
+atlas = ExtResource("1_im0tn")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2bb5"]
+atlas = ExtResource("1_im0tn")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5npld"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kj10r")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcjlb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vl87p")
+}],
+"loop": false,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfwl5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5d32t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mk58r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2bb5")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 3.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+scale = Vector2(0.125, 0.125)
+sprite_frames = SubResource("SpriteFrames_5npld")
+animation = &"walk"

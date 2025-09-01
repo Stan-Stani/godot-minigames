@@ -1,19 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://tpn04gos0veu"]
 
 [ext_resource type="Script" uid="uid://dtl3w078lmct4" path="res://player.gd" id="1_4flbx"]
-[ext_resource type="Texture2D" uid="uid://7s4i7se8l4gy" path="res://assets/Colleen.png" id="2_onrkg"]
+[ext_resource type="PackedScene" uid="uid://clqj15kv7id7p" path="res://Colleen.tscn" id="2_onrkg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sh265"]
 radius = 7.75
-height = 32.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_4flbx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, 16)
-shape = SubResource("CapsuleShape2D_sh265")
+[node name="Colleen" parent="." instance=ExtResource("2_onrkg")]
+position = Vector2(8, 15)
+scale = Vector2(-0.938, 0.938)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(8, 16)
-texture = ExtResource("2_onrkg")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 15)
+shape = SubResource("CapsuleShape2D_sh265")
