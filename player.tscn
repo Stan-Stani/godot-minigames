@@ -5,13 +5,14 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sh265"]
 radius = 7.75
+height = 32.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_4flbx")
 
 [node name="Colleen" parent="." instance=ExtResource("2_onrkg")]
 position = Vector2(8, 15)
-scale = Vector2(-0.938, 0.938)
+scale = Vector2(-1, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, 15)

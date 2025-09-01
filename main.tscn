@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://cvhktbdwiarkb"]
+[gd_scene load_steps=9 format=4 uid="uid://cvhktbdwiarkb"]
 
 [ext_resource type="PackedScene" uid="uid://tpn04gos0veu" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://5ahywenlphm2" path="res://assets/tiles.png" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://dbwv4f0e8k8xq" path="res://tile_map_layer.gd" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://bjua4xm478ba7" path="res://icon.svg" id="4_lquwl"]
+[ext_resource type="Texture2D" uid="uid://cblofhtv57gfu" path="res://assets/Glasun.png" id="5_lquwl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bvp3"]
 texture = ExtResource("3_h2yge")
@@ -25,7 +26,7 @@ size = Vector2(4, 10)
 [node name="Main" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_ig7tw")]
-position = Vector2(4, 103)
+position = Vector2(-134, 192)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 
@@ -46,3 +47,7 @@ texture = ExtResource("4_lquwl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wand"]
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="Glasun" type="Sprite2D" parent="."]
+position = Vector2(-146, 198)
+texture = ExtResource("5_lquwl")
