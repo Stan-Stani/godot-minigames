@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://byeqbbqc4rns"]
+
+[ext_resource type="Script" uid="uid://dfdr85whwhgm0" path="res://glasun.gd" id="1_g3y8h"]
+[ext_resource type="Texture2D" uid="uid://cblofhtv57gfu" path="res://assets/Glasun.png" id="1_yyqmi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yyqmi"]
+radius = 8.0
+
+[node name="Glasun" type="StaticBody2D"]
+script = ExtResource("1_g3y8h")
+
+[node name="Glasun" type="Sprite2D" parent="."]
+texture = ExtResource("1_yyqmi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yyqmi")

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://5ahywenlphm2" path="res://assets/tiles.png" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://dbwv4f0e8k8xq" path="res://tile_map_layer.gd" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://bjua4xm478ba7" path="res://icon.svg" id="4_lquwl"]
-[ext_resource type="Texture2D" uid="uid://cblofhtv57gfu" path="res://assets/Glasun.png" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://byeqbbqc4rns" path="res://glasun.tscn" id="5_lquwl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bvp3"]
 texture = ExtResource("3_h2yge")
@@ -25,10 +25,11 @@ size = Vector2(4, 10)
 
 [node name="Main" type="Node2D"]
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_ig7tw")]
+[node name="Colleen" parent="." instance=ExtResource("1_ig7tw")]
+unique_name_in_owner = true
 position = Vector2(-134, 192)
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+[node name="Camera2D" type="Camera2D" parent="Colleen"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD//w4AAAAAAAAAAAD+/w4AAAAAAAAAAAD9/w4AAAAAAAAAAAD8/w4AAAAAAAAAAAD7/w4AAAAAAAAAAAD6/w4AAAAAAAAAAAD6/w8AAAAAAAAAAAD5/w8AAAAAAAAAAAD4/w8AAAAAAAAAAAD3/w8AAAAAAAAAAAD2/w8AAAAAAAAAAAD2/w4AAAAAAAAAAAD1/w4AAAAAAAAAAAD4/w4AAAAAAAAAAAD5/w4AAAAAAAAAAAD3/w4AAAAAAAAAAAD0/w4AAAAAAAAAAADz/w4AAAAAAAAAAADy/w4AAAAAAAAAAADx/w4AAAAAAAAAAADw/w4AAAAAAAAAAADv/w4AAAAAAAAAAADu/w4AAAAAAAAAAADt/w4AAAAAAAAAAADs/w4AAAAAAAAAAADr/w4AAAAAAAAAAADq/w4AAAAAAAAAAAA=")
@@ -48,6 +49,5 @@ texture = ExtResource("4_lquwl")
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_1bvp3")
 
-[node name="Glasun" type="Sprite2D" parent="."]
-position = Vector2(-146, 198)
-texture = ExtResource("5_lquwl")
+[node name="Glasun" parent="." instance=ExtResource("5_lquwl")]
+position = Vector2(-199, 195)
