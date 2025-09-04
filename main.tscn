@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=4 uid="uid://cvhktbdwiarkb"]
 
-[ext_resource type="PackedScene" uid="uid://tpn04gos0veu" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://bwx5me5apc5tg" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://5ahywenlphm2" path="res://assets/tiles.png" id="3_h2yge"]
 [ext_resource type="Script" uid="uid://dbwv4f0e8k8xq" path="res://tile_map_layer.gd" id="4_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://bjua4xm478ba7" path="res://icon.svg" id="4_lquwl"]
@@ -27,7 +27,7 @@ size = Vector2(4, 10)
 
 [node name="Colleen" parent="." instance=ExtResource("1_ig7tw")]
 unique_name_in_owner = true
-position = Vector2(-134, 192)
+position = Vector2(-114, 189)
 
 [node name="Camera2D" type="Camera2D" parent="Colleen"]
 
@@ -50,4 +50,4 @@ position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_1bvp3")
 
 [node name="Glasun" parent="." instance=ExtResource("5_lquwl")]
-position = Vector2(-199, 195)
+position = Vector2(-48, 189)
