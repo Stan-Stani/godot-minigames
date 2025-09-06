@@ -1,26 +1,38 @@
 extends CharacterBody2D
 
+signal pickup_wand_toggle()
+
 
 @export var speed_base = 100
 @export var gravity = 200
 @export var jump_force_base = 150
+@export var health = 3
+
 
 var speed = speed_base
 var jump_force = jump_force_base
 
 var was_just_in_air: bool = true
+var has_wand: bool = false
+var is_wand_pickupable = false
 
 
 func _ready() -> void:
 	EventBus.player_health_change.connect(_on_player_health_change)
+	%HealthValueLabel.text = str(health)
 
 func _process(_delta: float) -> void:
 	if self.is_on_floor():
 		if (Input.is_action_pressed("ui_right")
 			|| Input.is_action_pressed("ui_left")):
-				$AnimatedSprite2D.play('walk')
+				$AnimatedSprite2D.play('walk' if !has_wand else 'walk_with_wand')
 		elif !was_just_in_air && $AnimatedSprite2D.animation != 'jump':
 			$AnimatedSprite2D.play('idle')
+
+	if Input.is_action_just_pressed("pickup_toggle"):
+		handle_try_wand_pickup_toggle()
+
+	print(has_wand, " has wand")
 
 func _physics_process(delta):
 	velocity.y += gravity * delta
@@ -55,6 +67,17 @@ func handle_jump_input():
 			was_just_in_air = true
 			$AnimatedSprite2D.play('jump', 2)
 
+
+func handle_try_wand_pickup_toggle():
+	if !has_wand && is_wand_pickupable:
+		has_wand = true
+		pickup_wand_toggle.emit()
+	elif has_wand:
+		has_wand = false
+		pickup_wand_toggle.emit()
+
+
+
 func handle_land():
 	if !self.is_on_floor():
 		was_just_in_air = true
@@ -63,11 +86,29 @@ func handle_land():
 		was_just_in_air = false
 
 func handle_distance_from_wand():
-	var distance = self.position.distance_to($/root/Main/Wand.position)
-	if distance >= 100:
-		jump_force = jump_force_base + jump_force_base * (distance / 1000)
-		speed = speed_base + speed_base * (distance / 1000)
+	if !has_wand:
+		var distance = self.position.distance_to(%Wand.position)
+		if distance >= 100:
+			jump_force = jump_force_base + jump_force_base * (distance / 1000)
+			speed = speed_base + speed_base * (distance / 1000)
+	else:
+		speed = speed_base
 	# print(distance, jump_force_base, speed_base)
 
 func _on_player_health_change(delta: int):
 	print("delta health ", delta)
+	health += delta
+	%HealthValueLabel.text = str(health)
+
+	if health <= 0:
+		get_tree().reload_current_scene()
+
+
+func _on_wand_pickup_zone_body_entered(body: Node2D) -> void:
+	if body == self:
+		is_wand_pickupable = true
+
+
+func _on_wand_pickup_zone_body_exited(body: Node2D) -> void:
+	if body == self:
+		is_wand_pickupable = false

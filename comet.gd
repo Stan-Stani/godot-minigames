@@ -1,10 +1,17 @@
 extends CharacterBody2D
+
+@export var gravity = 200
+
+
 var move: bool = true
 var facing: String = 'left'
 
 @onready var colleen: CharacterBody2D = %Colleen
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	velocity.y += gravity * delta
+
+
 	if move:
 		if round(colleen.position.x) > round(self.position.x):
 			self.velocity.x = 5
@@ -18,6 +25,7 @@ func _physics_process(_delta: float) -> void:
 		self.transform.x = Vector2(-1.0, 0.0)
 	elif facing == 'left':
 		self.transform.x = Vector2(1.0, 0.0)
+
 
 	move_and_slide()
 

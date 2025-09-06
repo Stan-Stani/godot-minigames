@@ -1,10 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://clqj15kv7id7p"]
+[gd_scene load_steps=15 format=3 uid="uid://clqj15kv7id7p"]
 
 [ext_resource type="Texture2D" uid="uid://7s4i7se8l4gy" path="res://assets/Colleen.png" id="1_im0tn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kj10r"]
 atlas = ExtResource("1_im0tn")
 region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0b4hr"]
+atlas = ExtResource("1_im0tn")
+region = Rect2(176, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jcjlb"]
 atlas = ExtResource("1_im0tn")
@@ -30,6 +34,22 @@ region = Rect2(48, 0, 16, 32)
 atlas = ExtResource("1_im0tn")
 region = Rect2(64, 0, 16, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vua2r"]
+atlas = ExtResource("1_im0tn")
+region = Rect2(112, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyplj"]
+atlas = ExtResource("1_im0tn")
+region = Rect2(128, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5logu"]
+atlas = ExtResource("1_im0tn")
+region = Rect2(144, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrfey"]
+atlas = ExtResource("1_im0tn")
+region = Rect2(160, 0, 16, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_5npld"]
 animations = [{
 "frames": [{
@@ -38,6 +58,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0b4hr")
+}],
+"loop": true,
+"name": &"idle_with_wand",
 "speed": 5.0
 }, {
 "frames": [{
@@ -67,9 +95,26 @@ animations = [{
 "loop": true,
 "name": &"walk",
 "speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vua2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyplj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5logu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrfey")
+}],
+"loop": true,
+"name": &"walk_with_wand",
+"speed": 5.0
 }]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
 scale = Vector2(0.125, 0.125)
 sprite_frames = SubResource("SpriteFrames_5npld")
-animation = &"walk"
+animation = &"idle_with_wand"
