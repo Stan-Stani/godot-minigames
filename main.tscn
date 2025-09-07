@@ -81,9 +81,9 @@ wait_time = 3.0
 
 [node name="PulseArea" type="Area2D" parent="Wand"]
 unique_name_in_owner = true
-scale = Vector2(0.991144, 1)
+scale = Vector2(0.972295, 0.92734)
 collision_layer = 2
-collision_mask = 3
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wand/PulseArea"]
 shape = SubResource("CircleShape2D_kek77")
