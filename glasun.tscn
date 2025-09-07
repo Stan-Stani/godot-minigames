@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://webm7yrtf8fp"]
+[gd_scene load_steps=7 format=3 uid="uid://webm7yrtf8fp"]
 
 [ext_resource type="Script" uid="uid://dfdr85whwhgm0" path="res://glasun.gd" id="1_g3y8h"]
 [ext_resource type="Texture2D" uid="uid://cblofhtv57gfu" path="res://assets/Glasun.png" id="1_yyqmi"]
+[ext_resource type="PackedScene" uid="uid://csfuach5v87a2" path="res://health_component.tscn" id="2_4vntk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g3y8h"]
 atlas = ExtResource("1_yyqmi")
@@ -25,6 +26,8 @@ radius = 8.0
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_g3y8h")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_4vntk")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_4vntk")

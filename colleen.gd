@@ -5,7 +5,7 @@ signal player_has_wand_change(has_wand: bool)
 
 @export var speed_base = 100
 @export var gravity = 200
-@export var jump_force_base = 150
+@export var jump_force_base = 112
 @export var health = 3
 
 

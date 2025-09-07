@@ -53,6 +53,7 @@ script = ExtResource("4_kek77")
 
 [node name="Pulse" type="Polygon2D" parent="Wand"]
 unique_name_in_owner = true
+visible = false
 color = Color(0.760099, 0.0855433, 0.375626, 1)
 polygon = PackedVector2Array(-9, -25, -25, -9, -20, 17, -1, 27, 23, 13, 22, -16)
 
@@ -75,15 +76,22 @@ rotation = 3.14159
 shape = SubResource("RectangleShape2D_kek77")
 one_way_collision_margin = 10.0
 
-[node name="PulseTimer" type="Timer" parent="Wand"]
+[node name="PulseOnTimer" type="Timer" parent="Wand"]
 unique_name_in_owner = true
-wait_time = 3.0
+wait_time = 2.0
+one_shot = true
+
+[node name="PulseOffTimer" type="Timer" parent="Wand"]
+unique_name_in_owner = true
+wait_time = 0.5
+one_shot = true
 
 [node name="PulseArea" type="Area2D" parent="Wand"]
 unique_name_in_owner = true
 scale = Vector2(0.972295, 0.92734)
 collision_layer = 2
 collision_mask = 5
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wand/PulseArea"]
 shape = SubResource("CircleShape2D_kek77")
@@ -115,6 +123,25 @@ theme_override_fonts/font = ExtResource("2_272bh")
 theme_override_font_sizes/font_size = 8
 text = "3"
 
+[node name="Label2" type="Label" parent="CanvasLayer"]
+offset_left = 4.0
+offset_top = 13.0
+offset_right = 64.0
+offset_bottom = 36.0
+theme_override_fonts/font = ExtResource("2_272bh")
+theme_override_font_sizes/font_size = 8
+text = "Wand:"
+
+[node name="WandSatietyLabel" type="Label" parent="CanvasLayer/Label2"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 40.0
+offset_right = 95.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_272bh")
+theme_override_font_sizes/font_size = 8
+text = "3"
+
 [node name="Colleen" parent="." instance=ExtResource("1_ig7tw")]
 unique_name_in_owner = true
 position = Vector2(-154, 202)
@@ -125,5 +152,6 @@ limit_bottom = 240
 
 [connection signal="body_entered" from="Wand/WandPickupZone" to="Colleen" method="_on_wand_pickup_zone_body_entered"]
 [connection signal="body_exited" from="Wand/WandPickupZone" to="Colleen" method="_on_wand_pickup_zone_body_exited"]
-[connection signal="timeout" from="Wand/PulseTimer" to="Wand" method="_on_pulse_timer_timeout"]
+[connection signal="timeout" from="Wand/PulseOnTimer" to="Wand" method="_on_pulse_on_timer_timeout"]
+[connection signal="timeout" from="Wand/PulseOffTimer" to="Wand" method="_on_pulse_off_timer_timeout"]
 [connection signal="player_has_wand_change" from="Colleen" to="Wand" method="_on_colleen_player_has_wand_change"]

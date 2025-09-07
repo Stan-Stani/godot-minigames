@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bewqtxc35ijup"]
+[gd_scene load_steps=9 format=3 uid="uid://bewqtxc35ijup"]
 
 [ext_resource type="Script" uid="uid://drgjg7j6u7mc3" path="res://comet.gd" id="1_imve7"]
 [ext_resource type="Texture2D" uid="uid://wjkqki0wdtx1" path="res://assets/Comet.png" id="2_imve7"]
+[ext_resource type="PackedScene" uid="uid://csfuach5v87a2" path="res://health_component.tscn" id="3_3s670"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4vntk"]
 atlas = ExtResource("2_imve7")
@@ -52,6 +53,8 @@ shape = SubResource("CapsuleShape2D_ntnkt")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 0.5)
 shape = SubResource("CapsuleShape2D_imve7")
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_3s670")]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
