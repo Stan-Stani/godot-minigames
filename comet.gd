@@ -8,6 +8,16 @@ var facing: String = 'left'
 
 @onready var colleen: CharacterBody2D = %Colleen
 
+@onready var pulse_area: Area2D = %PulseArea
+
+func _ready() -> void:
+	pulse_area.body_entered.connect(_on_wand_pulse_body_entered)
+
+func _on_wand_pulse_body_entered(body: Node2D):
+	print(body)
+	if body == self:
+		print('wow comet u dead')
+
 func _physics_process(delta: float) -> void:
 	velocity.y += gravity * delta
 

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-signal pickup_wand_toggle()
+signal player_has_wand_change(has_wand: bool)
 
 
 @export var speed_base = 100
@@ -14,7 +14,7 @@ var jump_force = jump_force_base
 
 var was_just_in_air: bool = true
 var has_wand: bool = false
-var is_wand_pickupable = false
+var is_wand_in_pickup_range = false
 
 
 func _ready() -> void:
@@ -27,12 +27,14 @@ func _process(_delta: float) -> void:
 			|| Input.is_action_pressed("ui_left")):
 				$AnimatedSprite2D.play('walk' if !has_wand else 'walk_with_wand')
 		elif !was_just_in_air && $AnimatedSprite2D.animation != 'jump':
-			$AnimatedSprite2D.play('idle')
+			if !has_wand:
+				$AnimatedSprite2D.play('idle')
+			else:
+				$AnimatedSprite2D.play('idle_with_wand')
 
 	if Input.is_action_just_pressed("pickup_toggle"):
 		handle_try_wand_pickup_toggle()
 
-	print(has_wand, " has wand")
 
 func _physics_process(delta):
 	velocity.y += gravity * delta
@@ -41,7 +43,7 @@ func _physics_process(delta):
 	handle_jump_input()
 	move_and_slide()
 
-	handle_distance_from_wand()
+	handle_colleen_wandless()
 
 
 func handle_horizontal_input():
@@ -69,13 +71,12 @@ func handle_jump_input():
 
 
 func handle_try_wand_pickup_toggle():
-	if !has_wand && is_wand_pickupable:
+	if !has_wand && is_wand_in_pickup_range:
 		has_wand = true
-		pickup_wand_toggle.emit()
+		player_has_wand_change.emit(true)
 	elif has_wand:
 		has_wand = false
-		pickup_wand_toggle.emit()
-
+		player_has_wand_change.emit(false)
 
 
 func handle_land():
@@ -85,14 +86,13 @@ func handle_land():
 		$AnimatedSprite2D.play('jump')
 		was_just_in_air = false
 
-func handle_distance_from_wand():
+func handle_colleen_wandless():
 	if !has_wand:
-		var distance = self.position.distance_to(%Wand.position)
-		if distance >= 100:
-			jump_force = jump_force_base + jump_force_base * (distance / 1000)
-			speed = speed_base + speed_base * (distance / 1000)
+		speed = speed_base * 1.5
+		jump_force = jump_force_base * 1.23
 	else:
 		speed = speed_base
+		jump_force = jump_force_base
 	# print(distance, jump_force_base, speed_base)
 
 func _on_player_health_change(delta: int):
@@ -105,10 +105,12 @@ func _on_player_health_change(delta: int):
 
 
 func _on_wand_pickup_zone_body_entered(body: Node2D) -> void:
+	print('hey')
 	if body == self:
-		is_wand_pickupable = true
+		is_wand_in_pickup_range = true
+		print('hey')
 
 
 func _on_wand_pickup_zone_body_exited(body: Node2D) -> void:
 	if body == self:
-		is_wand_pickupable = false
+		is_wand_in_pickup_range = false
