@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://cvhktbdwiarkb"]
+[gd_scene load_steps=17 format=4 uid="uid://cvhktbdwiarkb"]
 
 [ext_resource type="PackedScene" uid="uid://q0aqgrff4q3w" path="res://Colleen.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://daacxe2xggbd2" path="res://main.gd" id="1_kek77"]
@@ -35,6 +35,9 @@ size = Vector2(5, 2)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kek77"]
 radius = 26.9258
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4c57u"]
+radius = 86.0058
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_kek77")
@@ -96,11 +99,21 @@ monitoring = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wand/PulseArea"]
 shape = SubResource("CircleShape2D_kek77")
 
+[node name="SeekArea" type="Area2D" parent="Wand"]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wand/SeekArea"]
+shape = SubResource("CircleShape2D_4c57u")
+
 [node name="Glasun" parent="." instance=ExtResource("5_lquwl")]
-position = Vector2(-255, 198)
+position = Vector2(-46, 171)
+collision_layer = 12
 
 [node name="Comet" parent="." instance=ExtResource("6_7mycd")]
 position = Vector2(-249, 215)
+collision_layer = 12
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -144,7 +157,11 @@ text = "3"
 
 [node name="Colleen" parent="." instance=ExtResource("1_ig7tw")]
 unique_name_in_owner = true
-position = Vector2(-154, 202)
+position = Vector2(-200, 177)
+collision_layer = 9
+speed_base = 100
+gravity = 200
+jump_force_base = 112
 
 [node name="Camera2D" type="Camera2D" parent="Colleen"]
 scale = Vector2(0.125, 0.125)
@@ -154,4 +171,5 @@ limit_bottom = 240
 [connection signal="body_exited" from="Wand/WandPickupZone" to="Colleen" method="_on_wand_pickup_zone_body_exited"]
 [connection signal="timeout" from="Wand/PulseOnTimer" to="Wand" method="_on_pulse_on_timer_timeout"]
 [connection signal="timeout" from="Wand/PulseOffTimer" to="Wand" method="_on_pulse_off_timer_timeout"]
+[connection signal="body_entered" from="Wand/SeekArea" to="Wand" method="_on_seek_area_body_entered"]
 [connection signal="player_has_wand_change" from="Colleen" to="Wand" method="_on_colleen_player_has_wand_change"]

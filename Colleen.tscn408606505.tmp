@@ -125,6 +125,7 @@ script = ExtResource("1_4flbx")
 speed_base = null
 gravity = null
 jump_force_base = null
+health = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_sh265")

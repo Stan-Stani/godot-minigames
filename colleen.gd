@@ -6,7 +6,6 @@ signal player_has_wand_change(has_wand: bool)
 @export var speed_base = 100
 @export var gravity = 200
 @export var jump_force_base = 112
-@export var health = 3
 
 
 var speed = speed_base
@@ -17,9 +16,9 @@ var has_wand: bool = false
 var is_wand_in_pickup_range = false
 
 
-func _ready() -> void:
-	EventBus.player_health_change.connect(_on_player_health_change)
-	%HealthValueLabel.text = str(health)
+# func _ready() -> void:
+	# EventBus.player_health_change.connect(_on_player_health_change)
+	# %HealthValueLabel.text = str(health)
 
 func _process(_delta: float) -> void:
 	if self.is_on_floor():
@@ -95,13 +94,13 @@ func handle_colleen_wandless():
 		jump_force = jump_force_base
 	# print(distance, jump_force_base, speed_base)
 
-func _on_player_health_change(delta: int):
-	print("delta health ", delta)
-	health += delta
-	%HealthValueLabel.text = str(health)
+# func _on_player_health_change(delta: int):
+	# print("delta health ", delta)
+	# health += delta
+	# %HealthValueLabel.text = str(health)
 
-	if health <= 0:
-		get_tree().reload_current_scene()
+	# if health <= 0:
+	# 	get_tree().reload_current_scene()
 
 
 func _on_wand_pickup_zone_body_entered(body: Node2D) -> void:
