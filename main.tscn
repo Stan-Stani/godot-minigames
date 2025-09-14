@@ -40,7 +40,6 @@ radius = 26.9258
 radius = 86.0058
 
 [node name="Main" type="Node2D"]
-position = Vector2(352, 0)
 script = ExtResource("1_kek77")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
