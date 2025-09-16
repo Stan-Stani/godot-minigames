@@ -15,8 +15,10 @@ var was_just_in_air: bool = true
 var has_wand: bool = false
 var is_wand_in_pickup_range = false
 
+const path_of_flower_scene = "res://flower_placeholder.tscn"
 
 # func _ready() -> void:
+
 	# EventBus.player_health_change.connect(_on_player_health_change)
 	# %HealthValueLabel.text = str(health)
 
@@ -43,6 +45,8 @@ func _physics_process(delta):
 	move_and_slide()
 
 	handle_colleen_wandless()
+
+	_handle_ground_kind()
 
 
 func handle_horizontal_input():
@@ -101,6 +105,26 @@ func handle_colleen_wandless():
 
 	# if health <= 0:
 	# 	get_tree().reload_current_scene()
+
+func _handle_ground_kind():
+	var bodies: Array[Node2D] = %GroundDetectorArea2D.get_overlapping_bodies()
+	print(bodies)
+	if bodies.size() > 0:
+		var ground = bodies[0]
+		var detector_pos = %GroundDetectorArea2D.global_position
+		if ground is TileMapLayer:
+			var pos: Vector2i = ground.local_to_map(detector_pos)
+			print(pos, "pos")
+			var tile_data: TileData = ground.get_cell_tile_data(pos)
+			if tile_data:
+				print(tile_data.get_custom_data("has_flower"), tile_data.get_custom_data("kind") )
+				if tile_data.get_custom_data("kind") == 'soil' && !tile_data.get_custom_data("has_flower"):
+					var flower: Sprite2D = preload(path_of_flower_scene).instantiate()
+					flower.position = detector_pos
+					$"/root/Main".add_child(flower)
+					tile_data.set_custom_data("has_flower", true)
+					print('added flower')
+
 
 
 func _on_wand_pickup_zone_body_entered(body: Node2D) -> void:

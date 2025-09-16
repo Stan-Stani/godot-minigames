@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://q0aqgrff4q3w"]
+[gd_scene load_steps=19 format=3 uid="uid://q0aqgrff4q3w"]
 
 [ext_resource type="Script" uid="uid://dtl3w078lmct4" path="res://colleen.gd" id="1_4flbx"]
 [ext_resource type="Texture2D" uid="uid://7s4i7se8l4gy" path="res://assets/Colleen.png" id="2_onrkg"]
@@ -120,11 +120,11 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vl87p"]
+radius = 1.41421
+
 [node name="Colleen" type="CharacterBody2D"]
 script = ExtResource("1_4flbx")
-speed_base = null
-gravity = null
-jump_force_base = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_sh265")
@@ -137,3 +137,10 @@ autoplay = "idle"
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_vl87p")]
 health = 3
+
+[node name="GroundDetectorArea2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 17)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GroundDetectorArea2D"]
+shape = SubResource("CircleShape2D_vl87p")
