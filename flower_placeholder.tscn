@@ -2,5 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://bi8oauycfvp7c" path="res://assets/FlowerPlaceholder.png" id="1_4g6x1"]
 
-[node name="FlowerPlaceholder" type="Sprite2D"]
+[node name="Node2D" type="Node2D"]
+
+[node name="FlowerPlaceholder" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
 texture = ExtResource("1_4g6x1")

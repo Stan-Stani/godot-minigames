@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cvhktbdwiarkb"]
+[gd_scene load_steps=17 format=4 uid="uid://cvhktbdwiarkb"]
 
 [ext_resource type="PackedScene" uid="uid://q0aqgrff4q3w" path="res://Colleen.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://daacxe2xggbd2" path="res://main.gd" id="1_kek77"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://dgjg501vvljh8" path="res://assets/wand.png" id="5_4c57u"]
 [ext_resource type="PackedScene" uid="uid://webm7yrtf8fp" path="res://glasun.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://bewqtxc35ijup" path="res://comet.tscn" id="6_7mycd"]
-[ext_resource type="PackedScene" uid="uid://bo22rtw5cqtd4" path="res://flower_placeholder.tscn" id="10_4c57u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bvp3"]
 texture = ExtResource("3_h2yge")
@@ -170,9 +169,6 @@ collision_layer = 9
 [node name="Camera2D" type="Camera2D" parent="Colleen"]
 scale = Vector2(0.125, 0.125)
 limit_bottom = 240
-
-[node name="FlowerPlaceholder" parent="." instance=ExtResource("10_4c57u")]
-position = Vector2(7, 215)
 
 [connection signal="body_entered" from="Wand/WandPickupZone" to="Colleen" method="_on_wand_pickup_zone_body_entered"]
 [connection signal="body_exited" from="Wand/WandPickupZone" to="Colleen" method="_on_wand_pickup_zone_body_exited"]
