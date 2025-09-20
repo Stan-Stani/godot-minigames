@@ -109,23 +109,19 @@ func handle_colleen_wandless():
 	# 	get_tree().reload_current_scene()
 func _handle_ground_kind():
 	var bodies: Array[Node2D] = %GroundDetectorArea2D.get_overlapping_bodies()
-	print(bodies)
 	if bodies.size() > 0:
 		var ground = bodies[0]
 		var detector_pos = %GroundDetectorArea2D.global_position
 		if ground is TileMapLayer:
 			var pos: Vector2i = ground.local_to_map(detector_pos)
-			print(pos, "pos")
 			var tile_data: TileData = ground.get_cell_tile_data(pos)
 			if tile_data:
-				print(tile_data.get_custom_data("has_flower"), tile_data.get_custom_data("kind"))
 				if tile_data.get_custom_data("kind") == 'soil' && !flowered_soil.has(pos):
 					var entry = flowered_soil.get_or_add(pos, pos)
 					var flower: Node2D = preload(path_of_flower_scene).instantiate()
-					flower.position =  Vector2(pos * ground.tile_set.tile_size) + Vector2(ground.tile_set.tile_size.x * .5, 0)
+					flower.position = Vector2(pos * ground.tile_set.tile_size) + Vector2(ground.tile_set.tile_size.x * .5, 0)
 					$"/root/Main".add_child(flower)
 					tile_data.set_custom_data("has_flower", true)
-					print('added flower')
 
 
 func _on_wand_pickup_zone_body_entered(body: Node2D) -> void:

@@ -40,8 +40,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	print(body)
 	if body == %Colleen:
-		EventBus.player_health_change.emit(-1)
+		body.get_node("HealthComponent").try_health_change.emit(-1)
 		# move = false
 
 

@@ -38,7 +38,7 @@ func _physics_process(_delta: float) -> void:
 				seek_body = closest_body
 
 	if seek_body != null:
-		# print("SEEKING: ", seek_body)
+		print("SEEKING: ", seek_body)
 		seek_vector = self.position.direction_to(seek_body.position)
 	if pulse_count > 0:
 		self.apply_central_force(seek_speed * seek_vector + Vector2(0, gravity_override))

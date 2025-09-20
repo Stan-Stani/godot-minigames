@@ -60,6 +60,8 @@ pickup_toggle={
 [layer_names]
 
 2d_physics/layer_4="wand_sought"
+2d_physics/layer_5="ground_type"
+2d_physics/layer_6="wand_hitbox"
 
 [rendering]
 
@@ -67,3 +69,4 @@ textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.18431373, 0.28235295, 0.30588236, 1)
