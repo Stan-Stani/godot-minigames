@@ -43,7 +43,7 @@ script = ExtResource("1_imve7")
 sprite_frames = SubResource("SpriteFrames_yruee")
 autoplay = "default"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["enemy"]]
 collision_layer = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

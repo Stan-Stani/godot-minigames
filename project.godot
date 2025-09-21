@@ -25,6 +25,10 @@ window/size/viewport_width=256
 window/size/viewport_height=240
 window/stretch/mode="viewport"
 
+[global_group]
+
+enemy=""
+
 [input]
 
 ui_left={

@@ -51,6 +51,14 @@ func _physics_process(delta):
 	_handle_ground_kind()
 
 
+func clear_info_label():
+	$"/root/Main/%CenterLabel".text = ""
+
+func _unhandled_input(event):
+	if event is InputEventKey:
+				clear_info_label()
+
+
 func handle_horizontal_input():
 	var horizontal_input: float = (
 		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")

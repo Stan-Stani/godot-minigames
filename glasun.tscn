@@ -22,7 +22,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_yyqmi"]
 radius = 8.0
 
-[node name="Glasun" type="CharacterBody2D"]
+[node name="Glasun" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 12
 collision_mask = 2
 script = ExtResource("1_g3y8h")
