@@ -7,6 +7,7 @@ signal player_has_wand_change(has_wand: bool)
 @export var gravity = 200
 @export var jump_force_base = 112
 
+var is_velocity_in_swap_mode = false
 
 var speed = speed_base
 var jump_force = jump_force_base
@@ -41,12 +42,14 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta):
 	velocity.y += gravity * delta
-	handle_horizontal_input()
+	handle_horizontal_input(delta)
 	handle_land()
 	handle_jump_input()
 	move_and_slide()
 
 	handle_colleen_wandless()
+
+	handle_swap()
 
 	_handle_ground_kind()
 
@@ -59,16 +62,23 @@ func _unhandled_input(event):
 				clear_info_label()
 
 
-func handle_horizontal_input():
+func handle_horizontal_input(delta):
 	var horizontal_input: float = (
 		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	)
-	velocity.x = horizontal_input * speed
+	if is_velocity_in_swap_mode && !self.is_on_floor():
+		# half velocity every second
+		velocity.x = velocity.x - velocity.x * (delta / 2)
+	else:
+		velocity.x = horizontal_input * speed
 
 	if horizontal_input > 0:
 		$AnimatedSprite2D.scale.x = -1
+		is_velocity_in_swap_mode = false
 	elif horizontal_input < 0:
 		$AnimatedSprite2D.scale.x = 1
+		is_velocity_in_swap_mode = false
+
 
 func handle_jump_input():
 	var jump_input: float = - (
@@ -106,6 +116,20 @@ func handle_colleen_wandless():
 	else:
 		speed = speed_base
 		jump_force = jump_force_base
+
+
+func handle_swap():
+	if Input.is_action_just_pressed('swap'):
+		var saved_position = self.position
+		var saved_velocity = self.velocity
+
+
+		self.position = %Wand.position
+		self.velocity = %Wand.linear_velocity
+
+		%Wand.position = saved_position
+		%Wand.linear_velocity = saved_velocity
+		is_velocity_in_swap_mode = true
 	# print(distance, jump_force_base, speed_base)
 
 # func _on_player_health_change(delta: int):
