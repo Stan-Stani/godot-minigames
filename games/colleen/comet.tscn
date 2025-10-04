@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bewqtxc35ijup"]
 
 [ext_resource type="Script" uid="uid://drgjg7j6u7mc3" path="res://games/colleen/comet.gd" id="1_imve7"]
-[ext_resource type="Texture2D" uid="uid://wjkqki0wdtx1" path="res://assets/Comet.png" id="2_imve7"]
+[ext_resource type="Texture2D" uid="uid://wjkqki0wdtx1" path="res://games/colleen/assets/Comet.png" id="2_imve7"]
 [ext_resource type="PackedScene" uid="uid://csfuach5v87a2" path="res://games/colleen/health_component.tscn" id="3_3s670"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4vntk"]

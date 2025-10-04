@@ -1,16 +1,16 @@
 [gd_scene load_steps=20 format=4 uid="uid://by3bkfws0ya37"]
 
 [ext_resource type="Script" uid="uid://dv3faa38g5w42" path="res://games/colleen/main_colleen.gd" id="1_30tff"]
-[ext_resource type="Texture2D" uid="uid://5ahywenlphm2" path="res://assets/tiles.png" id="2_gwliy"]
+[ext_resource type="Texture2D" uid="uid://5ahywenlphm2" path="res://games/colleen/assets/tiles.png" id="2_gwliy"]
 [ext_resource type="Script" uid="uid://dbwv4f0e8k8xq" path="res://games/colleen/tile_map_layer.gd" id="3_61m8m"]
 [ext_resource type="Script" uid="uid://04524wpsiema" path="res://games/colleen/wand.gd" id="4_vavit"]
-[ext_resource type="Texture2D" uid="uid://dgjg501vvljh8" path="res://assets/wand.png" id="5_lprjh"]
+[ext_resource type="Texture2D" uid="uid://dgjg501vvljh8" path="res://games/colleen/assets/wand.png" id="5_lprjh"]
 [ext_resource type="PackedScene" uid="uid://webm7yrtf8fp" path="res://games/colleen/glasun.tscn" id="6_5sxts"]
 [ext_resource type="PackedScene" uid="uid://bewqtxc35ijup" path="res://games/colleen/comet.tscn" id="7_h4puk"]
-[ext_resource type="FontFile" uid="uid://bnjwlaww8s7di" path="res://assets/Early GameBoy.ttf" id="8_0pr61"]
+[ext_resource type="FontFile" uid="uid://bnjwlaww8s7di" path="res://games/colleen/assets/Early GameBoy.ttf" id="8_0pr61"]
 [ext_resource type="Script" uid="uid://dwba1w7luc8ps" path="res://games/colleen/wand_viewport.gd" id="9_3m074"]
 [ext_resource type="PackedScene" uid="uid://q0aqgrff4q3w" path="res://games/colleen/Colleen.tscn" id="10_5scfc"]
-[ext_resource type="AudioStream" uid="uid://e6uebfo545vq" path="res://assets/theme.wav" id="11_xbjkn"]
+[ext_resource type="AudioStream" uid="uid://e6uebfo545vq" path="res://games/colleen/assets/theme.wav" id="11_xbjkn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bvp3"]
 texture = ExtResource("2_gwliy")

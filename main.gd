@@ -1,9 +1,10 @@
 extends Node2D
 
 
-const START_SECONDS := 100.0
 
-
+func _ready() -> void:
+	if OS.is_debug_build():
+			get_tree().change_scene_to_file("res://mainShield.tscn")
 
 
 

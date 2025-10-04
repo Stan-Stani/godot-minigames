@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bnjwlaww8s7di"
-path="res://.godot/imported/Early GameBoy.ttf-900cd23284345f02d01edcb102c8e386.fontdata"
+path="res://.godot/imported/Early GameBoy.ttf-776e6fb7429a33edd34bc1b76e9948cf.fontdata"
 
 [deps]
 
-source_file="res://assets/Early GameBoy.ttf"
-dest_files=["res://.godot/imported/Early GameBoy.ttf-900cd23284345f02d01edcb102c8e386.fontdata"]
+source_file="res://games/colleen/assets/Early GameBoy.ttf"
+dest_files=["res://.godot/imported/Early GameBoy.ttf-776e6fb7429a33edd34bc1b76e9948cf.fontdata"]
 
 [params]
 
@@ -21,6 +21,7 @@ msdf_pixel_range=8
 msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
+modulate_color_glyphs=false
 hinting=1
 subpixel_positioning=4
 keep_rounding_remainders=true
