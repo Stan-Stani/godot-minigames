@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvhktbdwiarkb"]
+
+[ext_resource type="Script" uid="uid://daacxe2xggbd2" path="res://main.gd" id="1_wut1r"]
+
+[sub_resource type="Theme" id="Theme_ig7tw"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_wut1r")
+
+[node name="ShieldButton" type="Button" parent="."]
+offset_left = 73.0
+offset_top = 45.0
+offset_right = 195.0
+offset_bottom = 99.0
+theme = SubResource("Theme_ig7tw")
+text = "Shield
+"
+
+[node name="ColleenButton" type="Button" parent="."]
+offset_left = 73.0
+offset_top = 124.0
+offset_right = 195.0
+offset_bottom = 178.0
+theme = SubResource("Theme_ig7tw")
+text = "Colleen"
+
+[connection signal="pressed" from="ShieldButton" to="." method="_on_shield_button_pressed"]
+[connection signal="pressed" from="ColleenButton" to="." method="_on_colleen_button_pressed"]

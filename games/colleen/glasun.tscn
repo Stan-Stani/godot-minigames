@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://webm7yrtf8fp"]
 
-[ext_resource type="Script" uid="uid://dfdr85whwhgm0" path="res://glasun.gd" id="1_g3y8h"]
+[ext_resource type="Script" uid="uid://dfdr85whwhgm0" path="res://games/colleen/glasun.gd" id="1_g3y8h"]
 [ext_resource type="Texture2D" uid="uid://cblofhtv57gfu" path="res://assets/Glasun.png" id="1_yyqmi"]
-[ext_resource type="PackedScene" uid="uid://csfuach5v87a2" path="res://health_component.tscn" id="2_4vntk"]
+[ext_resource type="PackedScene" uid="uid://csfuach5v87a2" path="res://games/colleen/health_component.tscn" id="2_4vntk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g3y8h"]
 atlas = ExtResource("1_yyqmi")

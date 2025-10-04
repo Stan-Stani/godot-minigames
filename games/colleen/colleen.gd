@@ -16,7 +16,7 @@ var was_just_in_air: bool = true
 var has_wand: bool = false
 var is_wand_in_pickup_range = false
 
-const path_of_flower_scene = "res://flower_placeholder.tscn"
+const path_of_flower_scene = "res://games/colleen/flower_placeholder.tscn"
 var flowered_soil := {}
 
 
