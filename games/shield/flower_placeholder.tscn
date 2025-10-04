@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo22rtw5cqtd4"]
+
+[ext_resource type="Texture2D" uid="uid://bi8oauycfvp7c" path="res://games/shield/assets/FlowerPlaceholder.png" id="1_4g6x1"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="FlowerPlaceholder" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_4g6x1")
