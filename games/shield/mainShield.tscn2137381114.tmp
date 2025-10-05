@@ -121,6 +121,9 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wand/SeekArea"]
 shape = SubResource("CircleShape2D_4c57u")
 
+[node name="Glasun" parent="." instance=ExtResource("6_7b83y")]
+position = Vector2(-39, 158)
+
 [node name="Comet" parent="." instance=ExtResource("7_06h40")]
 position = Vector2(-249, 215)
 collision_layer = 12
@@ -260,7 +263,10 @@ volume_db = -9.368
 autoplay = true
 
 [node name="Glasun2" parent="." instance=ExtResource("6_7b83y")]
-position = Vector2(-88, 163)
+position = Vector2(-150, 169)
+
+[node name="Glasun3" parent="." instance=ExtResource("6_7b83y")]
+position = Vector2(54, 144)
 
 [node name="Comet2" parent="." instance=ExtResource("7_06h40")]
 position = Vector2(220, 118)

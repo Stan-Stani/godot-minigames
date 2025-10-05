@@ -72,7 +72,7 @@ swap={
 
 [layer_names]
 
-2d_physics/layer_4="wand_sought"
+2d_physics/layer_4="attacks"
 2d_physics/layer_5="ground_type"
 2d_physics/layer_6="wand_hitbox"
 

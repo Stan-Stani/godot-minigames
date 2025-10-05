@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://webm7yrtf8fp"]
+[gd_scene load_steps=8 format=3 uid="uid://webm7yrtf8fp"]
 
 [ext_resource type="Script" uid="uid://dfdr85whwhgm0" path="res://games/shield/glasun.gd" id="1_g3y8h"]
 [ext_resource type="Texture2D" uid="uid://cblofhtv57gfu" path="res://games/shield/assets/Glasun.png" id="1_yyqmi"]
@@ -22,8 +22,11 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_yyqmi"]
 radius = 8.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_25wa0"]
+radius = 171.0263
+
 [node name="Glasun" type="CharacterBody2D" groups=["enemy"]]
-collision_layer = 12
+collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_g3y8h")
 
@@ -39,6 +42,20 @@ shape = SubResource("CircleShape2D_yyqmi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_yyqmi")
+
+[node name="AttackArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_25wa0")
+
+[node name="TimerBounceBolt" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true
+autostart = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

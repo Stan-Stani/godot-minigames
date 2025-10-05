@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bw6ukxau2bvin"]
+
+[ext_resource type="Script" uid="uid://2x4laj3ynx31" path="res://games/shield/rigid_body_2d.gd" id="1_41el3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_41el3"]
+bounce = 0.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k6467"]
+radius = 3.0
+
+[node name="BounceBolt" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 9
+physics_material_override = SubResource("PhysicsMaterial_41el3")
+script = ExtResource("1_41el3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_k6467")

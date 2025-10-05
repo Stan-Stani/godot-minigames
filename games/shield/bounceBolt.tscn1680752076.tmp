@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw6ukxau2bvin"]
+
+[ext_resource type="Script" uid="uid://2x4laj3ynx31" path="res://games/shield/rigid_body_2d.gd" id="1_41el3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k6467"]
+
+[node name="BounceBolt" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+script = ExtResource("1_41el3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_k6467")

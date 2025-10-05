@@ -1,8 +1,8 @@
 [gd_scene load_steps=19 format=3 uid="uid://q0aqgrff4q3w"]
 
-[ext_resource type="Script" uid="uid://dtl3w078lmct4" path="res://games/colleen/colleen.gd" id="1_4flbx"]
-[ext_resource type="Texture2D" uid="uid://7s4i7se8l4gy" path="res://games/colleen/assets/Colleen.png" id="2_onrkg"]
-[ext_resource type="PackedScene" uid="uid://csfuach5v87a2" path="res://games/colleen/health_component.tscn" id="3_vl87p"]
+[ext_resource type="Script" uid="uid://dtl3w078lmct4" path="res://games/shield/dehd.gd" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://7s4i7se8l4gy" path="res://games/shield/assets/Colleen.png" id="2_onrkg"]
+[ext_resource type="PackedScene" uid="uid://csfuach5v87a2" path="res://games/shield/health_component.tscn" id="3_vl87p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sh265"]
 radius = 5.0
